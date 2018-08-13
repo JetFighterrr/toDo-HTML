@@ -1,6 +1,11 @@
 let listCurrent = []; //{text:"", done: false}
 let entryField = document.getElementById("entryField");
-getLocalList();
+try{
+  getLocalList();
+}
+catch(e){
+  alert(e.toString());
+}
 render();
 
 
@@ -37,7 +42,6 @@ function setLocalList(){
 function getLocalList(){
   // listCurrent = []; no need until function is reused
   let str = localStorage.getItem("list");
-  console.log(str);
   listCurrent = JSON.parse(str);
 }
 
@@ -57,8 +61,8 @@ function render() {
           let buttonDone = document.createElement('button');
           buttonDone.innerHTML = name;
           buttonDone.setAttribute('onclick', functionName + '(' + index + ');');
+          buttonDone.setAttribute('id', 'button' + name + '-' + index);
           el.appendChild(buttonDone);
-          el.setAttribute('id', 'button' + name + '-' + index);
         }
 
         addLiButton("Done",index.toString(),'changeStatus');
