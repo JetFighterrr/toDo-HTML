@@ -37,8 +37,9 @@ function setLocalList(){
 function getLocalList(){
   // listCurrent = []; no need until function is reused
   let str = localStorage.getItem("list");
-  console.log(str);
-  listCurrent = JSON.parse(str);
+  if (str) {
+    listCurrent = JSON.parse(str);
+  }
 }
 
 function render() {
@@ -57,8 +58,8 @@ function render() {
           let buttonDone = document.createElement('button');
           buttonDone.innerHTML = name;
           buttonDone.setAttribute('onclick', functionName + '(' + index + ');');
+          buttonDone.setAttribute('id', 'button' + name + '-' + index);
           el.appendChild(buttonDone);
-          el.setAttribute('id', 'button' + name + '-' + index);
         }
 
         addLiButton("Done",index.toString(),'changeStatus');
