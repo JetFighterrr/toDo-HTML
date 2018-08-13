@@ -1,9 +1,12 @@
-let list = [];
+let listCurrent = []; //{text:"", done: false}
+let entryField = document.getElementById("entryField");
+getLocalList();
 render();
 
+
 function clickEntry(){
-  let entry = document.getElementById("entryField").value;
-  document.getElementById("entryField").value = "";
+  let entry = entryField.value;
+  entryField.value = "";
   appendOurList(entry);
   render();
   return entry;
@@ -12,31 +15,58 @@ function clickEntry(){
 function appendOurList(input){
   let app = {text:"", done: false};
   app.text = input;
-  list.push(app);
+  listCurrent.push(app);
 }
 
-function changeStatus( indexValue ){
-  list[+indexValue].done = true;
-  console.log(1111);
+function changeStatus(indexValue){
+  listCurrent[+indexValue].done = !listCurrent[+indexValue].done;
+  render();
+}
+
+function deleteElement(indexValue){
+  listCurrent.splice(indexValue,1);
+  render();
+}
+
+function setLocalList(){
+  // let myStorage = localStorage;
+  let str = JSON.stringify(listCurrent);
+  localStorage.setItem("list",str);
+}
+
+function getLocalList(){
+  // listCurrent = []; no need until function is reused
+  let str = localStorage.getItem("list");
+  console.log(str);
+  listCurrent = JSON.parse(str);
 }
 
 function render() {
   let ul = document.getElementById("nwl");
   ul.innerHTML = "";
-  list.forEach( (li, index) => {
-    let el = document.createElement("li");
-    el.appendChild(document.createTextNode(li.text));
-    console.log(li.done);
-    if (li.done){
-      el.setAttribute("class","already_done");
-    }
+  listCurrent.forEach( (li, index) => {
+    if (li.text.includes(entryField.value))
+      {
+        let el = document.createElement("li");
+        el.appendChild(document.createTextNode(li.text));
+        if (li.done) {
+          el.setAttribute("class", "already_done");
+        }
 
-    let button = document.createElement("button");
-    button.innerHTML = "Done";
-    button.setAttribute('onclick','changeStatus(' + index.toString() + ');');
-    el.appendChild(button);
-    el.setAttribute("id","element-" + index.toString());
+        const addLiButton = (name, index, functionName) => {
+          let buttonDone = document.createElement('button');
+          buttonDone.innerHTML = name;
+          buttonDone.setAttribute('onclick', functionName + '(' + index + ');');
+          el.appendChild(buttonDone);
+          el.setAttribute('id', 'button' + name + '-' + index);
+        }
 
-    ul.appendChild(el);
+        addLiButton("Done",index.toString(),'changeStatus');
+        addLiButton("Delete",index.toString(),'deleteElement');
+
+        ul.appendChild(el);
+      }
   });
+
+  setLocalList();
 }

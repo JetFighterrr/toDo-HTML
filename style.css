@@ -1,0 +1,66 @@
+body {
+    background-color: DarkGray;
+    padding: 40px;
+    font-size: 16pt;
+}
+
+div {
+    margin: 0 auto;
+}
+
+input {
+//width: 85%;
+    border-radius: 7pt;
+    border-width:2pt;
+    border-color: darkgreen;
+    margin: 0 auto;
+    /*display: flex;*/
+    justify-content: center;
+    font-size: 16pt;
+    width: 400pt;
+}
+
+li  {
+    /*width: 400pt;*/
+}
+
+button {
+    border: 1pt solid;
+    border-color: Navy;
+    border-radius: 9pt;
+    font-size: x-large;
+    width: 90pt;
+    height: 35pt;
+    margin-left:20pt;
+}
+
+.digit {
+    background-color: aqua;
+}
+
+.signum{
+    background-color: DarkTurquoise;
+}
+
+.already_done{
+    font-weight:bold;
+    text-decoration:line-through;
+}
+
+#erase {
+    font-size: xx-large;
+    width: 148pt;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+#mins {
+    font-size: xx-large;
+
+}
+
+h1{
+    font-size: 46pt;
+    color: white;
+}
