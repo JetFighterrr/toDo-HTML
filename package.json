@@ -1,0 +1,25 @@
+{
+  "name": "toDo-HTML",
+  "version": "0.0.1",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JetFighterrr/toDo-HTML"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.2.0"
+  },
+  "dependencies": {
+    "jest": "^23.5.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testEnvironment": "node"
+  }
+}
