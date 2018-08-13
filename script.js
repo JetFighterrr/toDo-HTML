@@ -1,11 +1,6 @@
 let listCurrent = []; //{text:"", done: false}
 let entryField = document.getElementById("entryField");
-try{
-  getLocalList();
-}
-catch(e){
-  alert(e.toString());
-}
+getLocalList();
 render();
 
 
@@ -42,7 +37,9 @@ function setLocalList(){
 function getLocalList(){
   // listCurrent = []; no need until function is reused
   let str = localStorage.getItem("list");
-  listCurrent = JSON.parse(str);
+  if (str) {
+    listCurrent = JSON.parse(str);
+  }
 }
 
 function render() {
