@@ -59,6 +59,7 @@ function render() {
           buttonDone.innerHTML = name;
           buttonDone.setAttribute('onclick', functionName + '(' + index + ');');
           buttonDone.setAttribute('id', 'button' + name + '-' + index);
+          buttonDone.setAttribute('class', name.toLowerCase());
           el.appendChild(buttonDone);
         }
 
@@ -70,4 +71,15 @@ function render() {
   });
 
   setLocalList();
+}
+
+function getHttpList(){
+  let newQuery = new XMLHttpRequest();
+  newQuery.open("GET", 'http://jsonplaceholder.typicode.com/posts', false);
+  newQuery.send( null );
+
+  let result = JSON.parse(newQuery.response);
+
+  result.forEach( el => appendOurList(el.title));
+  render();
 }
