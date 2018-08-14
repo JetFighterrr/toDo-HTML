@@ -5,7 +5,8 @@ body {
 }
 li {
     margin-bottom: 3pt;
-    /*background-color: darkslategray;*/
+    background-color: dimgray;
+    width: 80%;
 }
 
 div {
@@ -13,7 +14,6 @@ div {
 }
 
 input {
-//width: 85%;
     border-radius: 7pt;
     border-width:2pt;
     border-color: darkgreen;
