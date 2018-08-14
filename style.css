@@ -3,6 +3,10 @@ body {
     padding: 40px;
     font-size: 16pt;
 }
+li {
+    margin-bottom: 3pt;
+    /*background-color: darkslategray;*/
+}
 
 div {
     margin: 0 auto;
@@ -34,30 +38,27 @@ button {
     margin-left:20pt;
 }
 
-.digit {
-    background-color: aqua;
+
+.download {
+    width: 120pt;
+    margin-left: 0pt;
 }
 
-.signum{
-    background-color: DarkTurquoise;
+.done {
+    width: 55pt;
+}
+
+.delete {
+    width: 65pt;
+}
+
+.enter {
+    width: 70pt;
 }
 
 .already_done{
     font-weight:bold;
     text-decoration:line-through;
-}
-
-#erase {
-    font-size: xx-large;
-    width: 148pt;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-}
-
-#mins {
-    font-size: xx-large;
-
 }
 
 h1{
