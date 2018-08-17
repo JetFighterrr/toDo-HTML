@@ -16,6 +16,7 @@
     "eslint": "^5.2.0"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "jest": "^23.5.0"
   },
   "jest": {
