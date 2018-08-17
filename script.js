@@ -59,7 +59,12 @@ function render() {
           buttonDone.innerHTML = name;
           buttonDone.setAttribute('onclick', functionName + '(' + index + ');');
           buttonDone.setAttribute('id', 'button' + name + '-' + index);
-          buttonDone.setAttribute('class', name.toLowerCase());
+          if ( name === 'Done') {
+            buttonDone.setAttribute('class', 'btn btn-success ' + 'done')
+          }
+          else {
+            buttonDone.setAttribute('class', 'btn btn-danger ' + 'delete')
+          }
           el.appendChild(buttonDone);
         }
 
